@@ -9,22 +9,23 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Geoffrey Grosenbach"]
-  s.date = %q{2010-07-06}
+  s.date = %q{2010-09-30}
   s.description = %q{Alternate logger for Rails that emits syslog-style output. For use with pl_analyze gem.}
   s.email = %q{boss@topfunky.com}
   s.extra_rdoc_files = [
-    "README.txt"
+    "README.rdoc"
   ]
   s.files = [
-    "README.txt",
+    "README.rdoc",
      "Rakefile",
+     "hodel_3000_compliant_logger.gemspec",
      "lib/hodel_3000_compliant_logger.rb",
      "spec/hodel_3000_compliant_logger_spec.rb"
   ]
   s.homepage = %q{http://github.com/topfunky/hodel_3000_compliant_logger}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{Alternate logger for Rails that emits syslog-style output. For use with pl_analyze gem.}
   s.test_files = [
     "spec/hodel_3000_compliant_logger_spec.rb"
@@ -34,13 +35,13 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_development_dependency(%q<rspec>, ["~> 1.3.0"])
     else
-      s.add_dependency(%q<rspec>, [">= 1.2.9"])
+      s.add_dependency(%q<rspec>, ["~> 1.3.0"])
     end
   else
-    s.add_dependency(%q<rspec>, [">= 1.2.9"])
+    s.add_dependency(%q<rspec>, ["~> 1.3.0"])
   end
 end
 
