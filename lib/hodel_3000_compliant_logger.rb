@@ -1,5 +1,6 @@
 require 'logger'
 require 'English'
+require 'socket'
 
 # A logger for use with pl_analyze and other tools that expect syslog-style log output.
 class Hodel3000CompliantLogger < Logger
