@@ -29,10 +29,23 @@ describe Hodel3000CompliantLogger do
     @out.string.count("\n").should == 1
   end
 
-  it "should replace newlines in message with an empty string" do
+  it "should keep newlines as separate lines (but append syslog format to each line)" do
     msg = "Yo\nho\nhello\nthere!"
     @log.info(msg)
-    @out.string.should match(/^\w{3} \d{2} \d{2}:\d{2}:\d{2} hostname rails\[\d+\]: Yohohellothere!\n$/)
+
+    strings = @out.string.split("\n")
+
+    strings[0].should match(/^\w{3} \d{2} \d{2}:\d{2}:\d{2} hostname rails\[\d+\]: Yo$/)
+    strings[1].should match(/^\w{3} \d{2} \d{2}:\d{2}:\d{2} hostname rails\[\d+\]: ho$/)
+    strings[2].should match(/^\w{3} \d{2} \d{2}:\d{2}:\d{2} hostname rails\[\d+\]: hello$/)
+    strings[3].should match(/^\w{3} \d{2} \d{2}:\d{2}:\d{2} hostname rails\[\d+\]: there!$/)
+  end
+
+  it 'should handle newlines (with \r) gracefully' do
+    msg = "foo\r\nbar"
+
+    @log.info(msg)
+    @out.string.should match(/foo\r\n.*bar.*\n/)
   end
 
   def toss_runtime_error
