@@ -1,6 +1,6 @@
 $: << File.dirname(__FILE__) + "/../lib"
 
-require 'spec'
+require 'rspec'
 require 'hodel_3000_compliant_logger'
 
 describe Hodel3000CompliantLogger do
