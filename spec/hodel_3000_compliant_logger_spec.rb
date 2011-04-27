@@ -1,6 +1,5 @@
 $: << File.dirname(__FILE__) + "/../lib"
 
-require 'rubygems'
 require 'spec'
 require 'hodel_3000_compliant_logger'
 
