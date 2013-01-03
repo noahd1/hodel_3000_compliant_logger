@@ -5,7 +5,7 @@ begin
 
   Jeweler::Tasks.new do |gem|
     gem.name = "hodel_3000_compliant_logger"
-    gem.version = "0.1.0"
+    gem.version = "0.1.1"
     gem.summary = %Q{Alternate logger for Rails that emits syslog-style output. For use with pl_analyze gem.}
     gem.description = %Q{Alternate logger for Rails that emits syslog-style output. For use with pl_analyze gem.}
     gem.email = "boss@topfunky.com"
